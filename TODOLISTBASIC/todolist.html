@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO LIST</title>
+    <style>
+        #todo{
+            height: 500px;
+            width: 500px;
+            background-color: rgb(96, 85, 91);
+        }
+        #inputfield{
+            height: 50px;
+            width: 400px;
+            background-color: beige;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow:0 0 10px rgb(114, 114, 109);
+        }
+        #add{
+            height: 50px;
+            width: 50px;
+            background-color: rgb(219, 219, 164);
+            border-radius: 20px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="todo">
+            <input type="text" id="inputfield">
+            <button id="add">ADD</button>
+    </div>
+</center>
+</body>
+<script>
+    var addtobutton=document.getElementById("add");
+    var todo=document.getElementById("todo");
+    var inputfield=document.getElementById("inputfield");
+
+    addtobutton.addEventListener("click",function(){
+        var paragraph=document.createElement("p");
+        paragraph.innerText=inputfield.value;
+        todo.appendChild(paragraph);
+        paragraph.style.fontSize="25px"
+        inputfield.value=" "
+
+        paragraph.addEventListener("click",function(){
+            paragraph.style.textDecoration="line-through";
+        })
+        paragraph.addEventListener("dblclick",function(){
+            todo.removeChild(paragraph);
+        })
+    })
+</script>
+</html>
